@@ -6,16 +6,23 @@ public class GameManager : MonoBehaviour
 {
     private Spawner spawner;
     public GameObject title;
+    private Vector2 screenBounds;
+    public GameObject playerPrefab;
+    private GameObject player;
+    private bool gameStarted = false;
 
     void Awake()
     {
-        spawner = GameObject.Find("Spawner").GetComponent<FallingBombs>();
+        spawner = GameObject.Find("Spawner").GetComponent<Spawner>();
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        player = playerPrefab;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-       spawner.active = false; 
+       spawner.active = false;
+       title.SetActive(true);
     }
 
     // Update is called once per frame
@@ -25,6 +32,16 @@ public class GameManager : MonoBehaviour
        {
         spawner.active = true;
         title.SetActive(false);
+       }
+
+       var nextBomb = GameObject.FindGameObjectsWithTag("Bomb");
+
+       foreach (GameObject bombObject in nextBomb)
+       {
+        if (bombObject.transform.position.y < (-screenBounds.y) - 12)
+        {
+            Destroy(bombObject);
+        }
        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBombs : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject bombPrefab;
     public float delay = 2.0f;
