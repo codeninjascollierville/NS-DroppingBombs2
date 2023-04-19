@@ -1,20 +1,21 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private FallingBombs Spawner;
+    private Spawner spawner;
+    public GameObject title;
 
     void Awake()
     {
-        Spawner = GameObject.Find("Spawner").GetComponent<FallingBombs>();
+        spawner = GameObject.Find("Spawner").GetComponent<FallingBombs>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-       Spawner.active = false; 
+       spawner.active = false; 
     }
 
     // Update is called once per frame
@@ -22,7 +23,8 @@ public class GameManager : MonoBehaviour
     {
        if (Input.anyKeyDown)
        {
-        Spawner.active = true;
+        spawner.active = true;
+        title.SetActive(false);
        }
     }
 }
