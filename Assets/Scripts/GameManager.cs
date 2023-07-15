@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     private bool gameStarted = false;
     public GameObject splash;
+    public GameObject canvas1;
+    public GameObject scoreSystem;
+    public Text scoreText;
+    public int pointsWorth = 1;
+    private int score;
 
     void Awake()
     {
@@ -30,19 +36,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameStarted)
+         if (!gameStarted)
         {
            if (Input.anyKeyDown)
            {
+            canvas1.SetActive(false);
              ResetGame();
            }
-        } else
+      } else
         {
           if (!player)
           {
             OnPlayedKilled();
           }
         }
+
         var nextBomb = GameObject.FindGameObjectsWithTag("Bomb");
      
        foreach (GameObject bombObject in nextBomb)
@@ -73,6 +81,7 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
 
         splash.SetActive(true);
+        canvas1.SetActive(true);
     }
 }
 
