@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     private bool gameStarted = false;
     public GameObject splash;
-    public GameObject canvas1;
     public GameObject scoreSystem;
     public Text scoreText;
     public int pointsWorth = 1;
@@ -40,14 +39,13 @@ public class GameManager : MonoBehaviour
         {
            if (Input.anyKeyDown)
            {
-            canvas1.SetActive(false);
              ResetGame();
            }
       } else
         {
           if (!player)
           {
-            OnPlayedKilled();
+            OnPlayerKilled();
           }
         }
 
@@ -55,7 +53,11 @@ public class GameManager : MonoBehaviour
      
        foreach (GameObject bombObject in nextBomb)
        {
-          if (bombObject.transform.position.y < (-screenBounds.y) - 12 || !gameStarted)
+          if (bombObject.transform.position.y < (-screenBounds.y))
+          {
+            Destroy(bombObject);
+          }
+          else if (!gameStarted)
           {
             Destroy(bombObject);
           }
@@ -75,13 +77,13 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
     }
 
-    void OnPlayedKilled()
+    void OnPlayerKilled()
     {
         spawner.active = false;
         gameStarted = false;
 
         splash.SetActive(true);
-        canvas1.SetActive(true);
+       
     }
 }
 

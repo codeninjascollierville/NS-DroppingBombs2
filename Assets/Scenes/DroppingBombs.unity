@@ -153,6 +153,9 @@ MonoBehaviour:
   title: {fileID: 2020301958}
   playerPrefab: {fileID: 239678938}
   splash: {fileID: 770430941}
+  scoreSystem: {fileID: 0}
+  scoreText: {fileID: 0}
+  pointsWorth: 1
 --- !u!4 &193283394
 Transform:
   m_ObjectHideFlags: 0
@@ -367,7 +370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: -280}
+  m_AnchoredPosition: {x: 102, y: -280}
   m_SizeDelta: {x: 611.0795, y: 102.111694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &548806004
@@ -417,7 +420,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Naci\u015Bnij dowolny klawisz, aby rozpocz\u0105\u0107\n\n"
+  m_Text: 'Press Any Key To Start
+
+
+
+'
 --- !u!222 &548806006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -948,7 +955,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Naci\u015Bnij dowolny klawisz, aby zagra\u0107 ponownie\n\n\n"
+  m_Text: 'Press Any Key To Play Again
+
+
+
+'
 --- !u!222 &1278233763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1218,7 +1229,7 @@ RectTransform:
   m_GameObject: {fileID: 2020301958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73756, y: 0.47738576, z: 1}
   m_Children:
   - {fileID: 1919322040}
   - {fileID: 548806003}
@@ -1227,7 +1238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2035800118
@@ -1315,7 +1326,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\rKONIEC GRY\n\n\n"
+  m_Text: 'GAME OVER
+
+
+
+
+'
 --- !u!222 &2035800122
 CanvasRenderer:
   m_ObjectHideFlags: 0
