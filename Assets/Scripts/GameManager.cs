@@ -35,33 +35,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (!gameStarted)
-        {
-           if (Input.anyKeyDown)
-           {
-             ResetGame();
-           }
-      } else
-        {
-          if (!player)
-          {
-            OnPlayerKilled();
-          }
-        }
-
-        var nextBomb = GameObject.FindGameObjectsWithTag("Bomb");
-     
-       foreach (GameObject bombObject in nextBomb)
-       {
-          if (bombObject.transform.position.y < (-screenBounds.y))
-          {
-            Destroy(bombObject);
-          }
-          else if (!gameStarted)
-          {
-            Destroy(bombObject);
-          }
-       }
+         if (Input.anyKeyDown)
+         {
+          spawner.active = true;
+          title.SetActive(false);
+         }
     }
 
     
