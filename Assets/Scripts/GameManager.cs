@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
        spawner.active = false;
        title.SetActive(true);
        splash.SetActive(false);
@@ -82,5 +83,3 @@ public class GameManager : MonoBehaviour
        
     }
 }
-
-
