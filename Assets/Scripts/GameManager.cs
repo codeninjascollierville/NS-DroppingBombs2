@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+              player = playerPrefab;
+              player = GameObject.Find("Rocket");
          if (!gameStarted)
          {
            if (Input.anyKeyDown)
@@ -72,6 +75,7 @@ public class GameManager : MonoBehaviour
         splash.SetActive(false);
         player = Instantiate(playerPrefab, new Vector3(0, 0, 0), playerPrefab.transform.rotation);
         gameStarted = true;
+       
     }
 
     void OnPlayerKilled()
@@ -80,6 +84,12 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
 
         splash.SetActive(true);
-       
+             Invoke("LoadScene1", 1); 
+
+    }
+
+    void LoadScene1()
+    {
+      SceneManager.LoadScene(0);
     }
 }
